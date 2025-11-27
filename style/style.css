@@ -1,18 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Style+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Style+Script&family=Poppins:wght@300;400;600&display=swap');
 
 /* Reset básico */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Style Script", cursive;
-    /* font-family: "Poppins", sans-serif; */
 }
 
 body {
     background: #f7f2e8;
     color: #333;
     padding: 20px;
+    font-family: "Style Script", cursive;
+}
+
+/* Títulos com a fonte decorativa */
+h1, h2 {
+    font-family: "Style Script", cursive;
 }
 
 /* Cabeçalho */
@@ -52,7 +56,6 @@ header p {
 
 /* Card com efeito flip */
 .card {
-    
     width: 500px;
     height: 520px;
     perspective: 1000px;
@@ -71,10 +74,8 @@ header p {
     transform: rotateY(180deg);
 }
 
-/* Frente e verso */
-.card-front, 
-.card-back {
-    
+/* Frente e verso padrão */
+.card-front, .card-back {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -86,72 +87,117 @@ header p {
     text-align: center;
 }
 
-/* Frente */
-
-.card-front {
-    background-image: url(../assets/fundo.jpeg);
-    
-}
-
-.card-front h2 {
-    font-size: 2.5rem;
-}
-
-.card-front img {
-    padding-top: 30px;
-    margin: 0 auto;
-}
-
-
-.card-front img {
-    
-    width: 80%;
-    border-radius: 10px;
-    margin-top: 15px;
-}
-
-/* Verso */
+/* Fundo decorativo */
+.card-front,
 .card-back {
     background-image: url(../assets/fundo.jpeg);
     background-size: cover;
     background-position: center;
+}
 
+/* Frente */
+.card-front h2 {
+    font-size: 2.5rem;
+    color: #4b1600;
+}
+
+.card-front img {
+    width: 80%;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+/* Verso */
+.card-back {
+    transform: rotateY(180deg);
+    border: 8px solid #5a1b00;
     display: flex;
     justify-content: center;
     align-items: center;
-
-    padding: 30px;
-    text-align: center;
-
-    border: 10px solid #5a1b00;
-    border-radius: 10px;
-
-    transform: rotateY(180deg);
-    backface-visibility: hidden;
-    
+    padding: 25px;
 }
 
 .card-back p {
-    font-size: 21px;
+    font-size: 18px;
+    line-height: 1.4;
+    color: #2c1a13;
 }
 
-/* .card-back {
-    transform: rotateY(180deg);
-    background: #fff7e6;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 25px;
-} */
+/* Destaques de texto */
+.Ingredientes,
+.modoPreparo {
+    display: block;
+    margin: 15px 0 10px;
+    font-weight: bold;
+    font-size: 22px;
+    color: #4b1600;
+    text-decoration: underline;
+}
 
-/* Responsivo */
-@media (max-width: 600px) {
-    header .titulo {
+/* Responsividade */
+@media (max-width: 900px) {
+    .card {
+        width: 350px;
+        height: 420px;
+    }
+
+    .card-front h2 {
         font-size: 2rem;
     }
 
-    .card {
-        width: 200px;
-        height: 280px;
+    .card-back p {
+        font-size: 16px;
     }
+}
+
+@media (max-width: 600px) {
+    header .titulo {
+        font-size: 2.2rem;
+    }
+
+    .card {
+        width: 260px;
+        height: 340px;
+    }
+
+    .card-front h2 {
+        font-size: 1.8rem;
+    }
+
+    .card-back p {
+        font-size: 14px;
+    }
+}
+
+/* Caixa que contém botão + card */
+.surpresa-box {
+    width: 100%;
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* Botão estilizado */
+#btn-surpresa {
+    padding: 15px 25px;
+    background: #a0522d;
+    color: white;
+    font-size: 1.4rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#btn-surpresa:hover {
+    background: #7a3d21;
+}
+
+/* Esconder card inicialmente */
+.hidden {
+    display: none;
+}
+
+/* Card surpresa segue o mesmo estilo */
+.surpresa-card {
+    margin: 30px auto;
 }
